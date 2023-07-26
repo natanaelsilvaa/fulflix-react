@@ -14,14 +14,13 @@ export default function Detail(){
         <MainContainer>
             <Header />
                 <Grid>             
-                    <img src={`https://image.tmdb.org/t/p/w500/${state.poster_path}`} alt={state.title}/>
-                    
+                    <img src={`https://image.tmdb.org/t/p/w500${state.poster_path}`} alt={state.title}/>
                     <RigthSide>
                         <p><b>Titulo:</b> {state.title}</p>
                         <p><b>Sinopse:</b> {state.overview}</p>
                         <p><b>Data de lançamento:</b> {state.release_date}</p>
                         <p><b>Nota:</b>{state.vote_average} </p>
-                        <Link to={"/"}>Voltar Para Home</Link>
+                        <Link to={"/Home"}>Voltar Para Home</Link>
                     </RigthSide>
                     
                 </Grid>

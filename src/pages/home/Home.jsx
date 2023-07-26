@@ -26,7 +26,7 @@ export function Home(){
            
                 <Grid>      
                     {movies.map((movie)=> {
-                    return  <Card movie={movie}/>;  
+                    return  <Card movie={movie}/>;       
                 
                     })}
                 </Grid>  

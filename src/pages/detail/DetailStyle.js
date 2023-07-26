@@ -30,7 +30,7 @@ export const RigthSide = styled.div`
         height: 10vh;
         width: 14vw;
         border-radius: 1.5vw;
-        background-color: #c62924;
+        background-color: #e40c14;
         color: #fff;
         font-size: 1.5vw;
         text-decoration: none;

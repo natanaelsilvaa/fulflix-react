@@ -19,7 +19,7 @@ import { getMovieInfo } from "../../redux/fullflixSlice";
     },[movieDetail])
  
     return (
-        <MainContainer to={"/detail"} onMouseEnter={onHoverDetail} id={movie.id}>
+        <MainContainer to={"/Detail"} onMouseEnter={onHoverDetail} id={movie.id}>
             
             <img 
                 
