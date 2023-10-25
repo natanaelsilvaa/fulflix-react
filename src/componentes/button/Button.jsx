@@ -3,13 +3,13 @@ import { ButtonCustomizado } from './ButtonStyle';
 
 
 export const Button = ({
-    type, text, onClick, disabled
+    type, text,  disabled
 }) => {
     return (
         <ButtonCustomizado
             type={type}
             text={text}
-            onClick={onClick}
+           
             disabled={disabled}>
            {text}
         </ButtonCustomizado>

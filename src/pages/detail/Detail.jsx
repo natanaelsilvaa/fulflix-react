@@ -19,7 +19,6 @@ export function Detail() {
                     <p><b>Sinopse:</b> {state.overview}</p>
                     <p><b>Data de lançamento:</b> {state.release_date}</p>
                     <p><b>Nota:</b>{state.vote_average} </p>
-                    <Link to={"/"}>Voltar Para Home</Link>
                 </RigthSide>
 
             </Grid>

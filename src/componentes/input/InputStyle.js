@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const InputCustomizado = styled.input `
     display: flex;
     flex-direction: column;
-    color: #000;
+    color: #fff;
     font-size: 20px;
     background-color: transparent;
     border: 2px solid #6a6a6a;

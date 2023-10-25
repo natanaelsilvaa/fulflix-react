@@ -6,16 +6,18 @@ export const Nav = styled.nav`
     box-shadow: rgba(0,0,0, .15) 0px -2px 10px;
     align-items: center;
     padding: .5em 2em;
-    background-color: #2d2f31;
+    background-color: #000;
 
 `
 export const NavBrand = styled.a`
 
     font-size: 1.2em;
+    
+
     span{
         font-weight: 900;
         text-transform: uppercase;
-        color: #e40c14
+        color: #e40c14;
     }
 
 `

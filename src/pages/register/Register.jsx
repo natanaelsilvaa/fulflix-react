@@ -1,42 +1,44 @@
 import { useState } from 'react';
-import { Container, Form, LinkCuston } from './RegisterStyle';
+import { Container, Form } from './RegisterStyle';
 import { Input } from './../../componentes/input/Input';
 import { Button } from '../../componentes/button/Button';
-import { Link, useNavigate } from 'react-router-dom';
-import { initializeApp } from 'firebase/app';
-import { firebaseConfig } from '../../services/firebase';
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
-import { Footer } from '../../componentes/footer/Footer';
+import { Link } from 'react-router-dom';
+;
 
 
 
 
 export function Register() {
+    const [displayName, setDisplayName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate()
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState('');
 
-    const app = initializeApp(firebaseConfig);
+    
+    const handleSubmit = (e) => {
+        e.preventDefault()
 
-    const auth = getAuth(app);
+        setError('')
 
-    const register = async () => {
-        createUserWithEmailAndPassword(auth, email, password).then((response) => {
-            window.alert('Registro feito com sucesso!')
-            navigate('/')
-        }).catch((error) => {
-            console.log(error)
-        })
+        const user = {
+            displayName,
+            email,
+            password
+        }
 
+        if(confirmPassword !== password) {
+            setError('As senhas precisam ser iguais!')
+        }
+        console.log(user)
     }
-
 
 
 
     return (
 
         <Container>
-            <Form>
+            <Form onSubmit={handleSubmit}>
             <h1>Faça seu Cadastro</h1>
             <p>Crie seu Usúario e divirta-se vendo seus Filmes favoritos</p>
                 {/* <h1>FULLFLIX</h1> */}
@@ -48,6 +50,8 @@ export function Register() {
                         name='name'
                         required
                         placeholder='Digite seu Nome'
+                        value={displayName}
+                        onChange={(e) => setDisplayName(e.target.value)}
                     />
                 </label>
                 <label>
@@ -57,7 +61,8 @@ export function Register() {
                         name='email'
                         required
                         placeholder='Email'
-                        onChange={(e) => setEmail(e)}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                 </label>
 
@@ -68,7 +73,8 @@ export function Register() {
                         name='password'
                         required
                         placeholder='Senha'
-                        onChange={(e) => setPassword(e)}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </label>
                 <label>
@@ -78,16 +84,18 @@ export function Register() {
                         name='password'
                         placeholder='Confirme sua senha'
                         required
-                        onChange={(e) => setPassword(e)}
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </label>
                 <Button
                     type='submit'
                     text='Cadastrar'
-                    onClick={register}
 
                 />
                 
+                {error && <span className='error'>{error}</span>}
+
                 <p>Já possui conta?</p>
                 <Link to='/login'>Faça seu Login</Link>
 

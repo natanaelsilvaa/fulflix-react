@@ -22,21 +22,9 @@ export const RigthSide = styled.div`
     padding: 5vw;
     p{
         font-size: 1.5vw;
-    }
-    a{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 10vh;
-        width: 14vw;
-        border-radius: 1.5vw;
-        background-color: #e40c14;
         color: #fff;
-        font-size: 1.5vw;
-        text-decoration: none;
-        :hover{
-            opacity: 0.8;
-        }
+    }
+    
 }
 `
 

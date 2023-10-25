@@ -2,7 +2,7 @@ body {
   margin: 0 auto;
   padding: 0;
   font-family: "Montserrat", sans-serif;
-  background-color: #f0eded; 
+  background-color: rgba(0,0,0,.70); 
   
 }
 
@@ -28,7 +28,7 @@ nav button {
 
 a:hover, 
 nav button:hover {
-    color: #bbb;
+    color: #db0404;
 }
 /* form {
   max-width: 40%;
@@ -47,12 +47,10 @@ label span {
   text-align: left;
 }
 
-/* input,
-textarea {
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  padding: .8em 0;
-  background-color: transparent;
-
-} */
+.error {
+  color: #721C24;
+  background-color: #F8D7DA;
+  border: 1px solid #F5C6CB;
+  padding: 5px;
+  border-radius: 5px;
+}
