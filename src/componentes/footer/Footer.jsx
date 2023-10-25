@@ -4,7 +4,7 @@ export function Footer({text}){
 
     return(
         <MainContainer>
-            <p>FULLFLIX @ 2023, Todos os direitos reservados</p>
+            <p>FULLFLIX &copy; 2023, Todos os direitos reservados</p>
         </MainContainer>
     )
 }

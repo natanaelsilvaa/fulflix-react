@@ -19,7 +19,7 @@ export const RigthSide = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 2vw;
+    padding: 5vw;
     p{
         font-size: 1.5vw;
     }

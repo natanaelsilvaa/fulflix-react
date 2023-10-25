@@ -1,5 +1,5 @@
 import { MainContainer } from "./CardStyled";
-import { getDetail } from "../../api/api";
+import { getDetail } from "../../services/api";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getMovieInfo } from "../../redux/fullflixSlice";
@@ -14,7 +14,7 @@ import { getMovieInfo } from "../../redux/fullflixSlice";
      
      }
 
-    useEffect(()=>{
+    useEffect(() => {
     dispatch(getMovieInfo(movieDetail))
     },[movieDetail])
  

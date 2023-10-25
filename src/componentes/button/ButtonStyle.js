@@ -8,7 +8,7 @@ export const ButtonCustomizado = styled.button `
     border: 30px;
     background-color: #e40c14;
     border-radius: 8px;
-    width: 64%;
+    width: 50%;
     height: 50px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;

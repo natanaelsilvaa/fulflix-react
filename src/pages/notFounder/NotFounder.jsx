@@ -1,7 +1,7 @@
 import CircumIcon from "@klarr-agency/circum-icons-react";
 import styled from "styled-components";
 
-export default function NotFounder(){
+export function NotFounder(){
  
     return(
      <Container value="404" text="Página não encontrada">
@@ -15,6 +15,7 @@ export default function NotFounder(){
         </Container>
     );
 }
+export default NotFounder;
 
 export const Container = styled.div`
 display: flex;

@@ -6,9 +6,7 @@ export const MainContainer = styled.div`
 
 justify-content: center;
 align-items: center;
-font-size: 2vw;
 height: fit-content;
-min-height: 100vh;
 background-color: #040004;
 
 `

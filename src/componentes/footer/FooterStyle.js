@@ -2,13 +2,12 @@ import styled from "styled-components";
 
 
 export const MainContainer = styled.div`
+     display: flex;
+     flex-direction: column;
+     height: 200px;
+     background-image: linear-gradient(to bottom, #2d2f31, #242426, #1b1b1c, #111011, #000000);
+     color: #fff;
+     text-align: center;
+     justify-content: center;
 
-    background-color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 10vh;
-    font-size: 2.4vh;
-    border-top: 1px solid gray;
-    color: #fff;
 `

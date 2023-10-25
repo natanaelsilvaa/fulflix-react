@@ -1,73 +1,99 @@
-import { useState  } from 'react';
-import { Container, Form } from './RegisterStyle';
+import { useState } from 'react';
+import { Container, Form, LinkCuston } from './RegisterStyle';
 import { Input } from './../../componentes/input/Input';
 import { Button } from '../../componentes/button/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth } from '../../services/firebase';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from '../../services/firebase';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { Footer } from '../../componentes/footer/Footer';
+
+
+
 
 export function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate()
-    const [ createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth)
 
-     function handleSignInOut(e) {
-        e.preventDefault();
-        createUserWithEmailAndPassword( email, password).then((response) => {
-            alert('cadastrado')
-            navigate('/Home')
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+
+    const register = async () => {
+        createUserWithEmailAndPassword(auth, email, password).then((response) => {
+            window.alert('Registro feito com sucesso!')
+            navigate('/')
         }).catch((error) => {
             console.log(error)
         })
+
     }
 
-    if(loading) {
-        return <p>Carregando.....</p>
-    }
 
-    if(user) {
-        return console.log(user)
-    }
-
-    if(error) {
-        return console.log(error)
-    }
 
 
     return (
+
         <Container>
             <Form>
+            <h1>Faça seu Cadastro</h1>
+            <p>Crie seu Usúario e divirta-se vendo seus Filmes favoritos</p>
                 {/* <h1>FULLFLIX</h1> */}
-                <h2>Faça seu Cadastro</h2>
-             
-                
-                
-            <div>
-                <Input
-                    name='email'
-                    placeholder='Email'
-                    type='email'
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-            </div>  
-            <div>
-                <Input
-                    name='password'
-                    placeholder='Senha'
-                    type='password'
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </div>  
-                <Button 
+
+                <label>
+                    <span>Nome</span>
+                    <Input
+                        type='name'
+                        name='name'
+                        required
+                        placeholder='Digite seu Nome'
+                    />
+                </label>
+                <label>
+                    <span>Email</span>
+                    <Input
+                        type='email'
+                        name='email'
+                        required
+                        placeholder='Email'
+                        onChange={(e) => setEmail(e)}
+                    />
+                </label>
+
+                <label>
+                    <span>Senha</span>
+                    <Input
+                        type='password'
+                        name='password'
+                        required
+                        placeholder='Senha'
+                        onChange={(e) => setPassword(e)}
+                    />
+                </label>
+                <label>
+                    <span>Confirme sua senha</span>
+                    <Input
+                        type='password'
+                        name='password'
+                        placeholder='Confirme sua senha'
+                        required
+                        onChange={(e) => setPassword(e)}
+                    />
+                </label>
+                <Button
                     type='submit'
                     text='Cadastrar'
-                    onClick={handleSignInOut}
-                    
-                /> 
-                   <Link to='/'>Já possui uma conta? Faça seu Login</Link>
+                    onClick={register}
+
+                />
+                
+                <p>Já possui conta?</p>
+                <Link to='/login'>Faça seu Login</Link>
+
             </Form>
         </Container>
+
     );
 
 

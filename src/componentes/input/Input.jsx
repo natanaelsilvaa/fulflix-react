@@ -1,9 +1,8 @@
 import React from "react";
 import { InputCustomizado } from "./InputStyle";
 
-export const Input = ({
-    name, placeholder, type
-}) => {
+export const Input = ({name, placeholder, type}) => {
+    
     return (
         <InputCustomizado
             name={name}

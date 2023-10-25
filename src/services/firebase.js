@@ -1,7 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
 
-const firebaseConfig = {
+
+export const firebaseConfig = {
   apiKey: "AIzaSyACeI6ugAJJOn8IEimwfQvVvTWEQmtCnAs",
   authDomain: "react-loginweb.firebaseapp.com",
   projectId: "react-loginweb",
@@ -11,5 +10,3 @@ const firebaseConfig = {
   measurementId: "G-CPYP565NTM"
 };
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
