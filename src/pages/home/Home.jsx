@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { getList } from "../../services/api";
 import { Card } from "../../componentes/card/Card";
-import { Footer } from "../../componentes/footer/Footer";
 import { Grid, MainContainer, Part1, Part2 } from "./HomeStyle";
 
 

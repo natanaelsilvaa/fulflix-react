@@ -16,7 +16,7 @@ import { getMovieInfo } from "../../redux/fullflixSlice";
 
     useEffect(() => {
     dispatch(getMovieInfo(movieDetail))
-    },[movieDetail])
+    },[dispatch, movieDetail])
  
     return (
         <MainContainer to={"/Detail"} onMouseEnter={onHoverDetail} id={movie.id}>

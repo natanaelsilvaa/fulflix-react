@@ -1,22 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Form } from './RegisterStyle';
 import { Input } from './../../componentes/input/Input';
 import { Button } from '../../componentes/button/Button';
 import { Link } from 'react-router-dom';
-;
+import { useAuthentication } from '../../hooks/useAuthentication';
 
 
 
 
-export function Register() {
+
+export const Register = () => {
     const [displayName, setDisplayName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
 
+    const { error: authError, createUser, loading } = useAuthentication()
     
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         setError('')
@@ -29,11 +31,19 @@ export function Register() {
 
         if(confirmPassword !== password) {
             setError('As senhas precisam ser iguais!')
+            return
         }
-        console.log(user)
+
+        const res = await createUser(user)
+
+        console.log(res)
     }
 
-
+    useEffect(() => {
+        if(authError) {
+            setError(authError)
+        }
+    }, [authError])
 
     return (
 
@@ -60,7 +70,7 @@ export function Register() {
                         type='email'
                         name='email'
                         required
-                        placeholder='Email'
+                        placeholder='Digite seu email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
@@ -72,7 +82,7 @@ export function Register() {
                         type='password'
                         name='password'
                         required
-                        placeholder='Senha'
+                        placeholder='Digite sua senha'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
@@ -88,11 +98,8 @@ export function Register() {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </label>
-                <Button
-                    type='submit'
-                    text='Cadastrar'
-
-                />
+                {!loading && <Button type='submit' text='Cadastrar' />}
+                {loading && <Button type='submit' text='Aguarde' disabled />}
                 
                 {error && <span className='error'>{error}</span>}
 

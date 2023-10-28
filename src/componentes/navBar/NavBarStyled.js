@@ -9,7 +9,7 @@ export const Nav = styled.nav`
     background-color: #000;
 
 `
-export const NavBrand = styled.a`
+export const NavBrand = styled.div`
 
     font-size: 1.2em;
     
@@ -22,7 +22,7 @@ export const NavBrand = styled.a`
 
 `
 
-export const NavList = styled.a`
+export const NavList = styled.div`
 
    ul { 
     display: flex;
